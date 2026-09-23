@@ -15,3 +15,13 @@ pruebas de recuperacion en docs/08-copias-restauracion.md.
 [Creación de estructura — 22/09/2026](./capturas-o-salidas/01img1.jpeg)
 
 [Visualización de estructura — 22/09/2026](./capturas-o-salidas/01img2.jpeg)
+
+[Iniciar git y configuración usuario y email](./capturas-o-salidas/01img3.jpeg)
+
+[Añadir los archivos y directorios que queremos incluir en el commit](./capturas-o-salidas/01img4.jpeg)
+
+[Primer commit](./capturas-o-salidas/01img5.jpeg)
+
+[Primer push](./capturas-o-salidas/01img6.jpeg)
+
+## Sesion 02 ##
