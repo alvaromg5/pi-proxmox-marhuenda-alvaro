@@ -133,17 +133,17 @@ Condicionado a:
 
 ***I/O Wait*** --> I/O Wait es el porcentaje de tiempo que el procesador se queda inactivo o bloqueado porque está esperando a que un dispositivo de almacenamiento termine de leer o escribir datos.
 
-[bios](../evidencias/Sesion02/capturas-o-salidas/bios.txt)
-[df](../evidencias/Sesion02/capturas-o-salidas/df.txt)
-[Mem_free](../evidencias/Sesion02/capturas-o-salidas/free.txt)
-[ip addr enp2s0](../evidencias/Sesion02/capturas-o-salidas/ipbr.txt)
-[lsblk](../evidencias/Sesion02/capturas-o-salidas/lsblk.txt)
-[lscpu](../evidencias/Sesion02/capturas-o-salidas/lscpu.txt)
-[lspci](../evidencias/Sesion02/capturas-o-salidas/lspci.txt)
-[memory](../evidencias/Sesion02/capturas-o-salidas/memory.txt)
-[smartctl](../evidencias/Sesion02/capturas-o-salidas/smartctl.txt)
-[systemd-detect-virt](../evidencias/Sesion02/capturas-o-salidas/systemd.txt)
-[velocidad de red (dmesg)](../evidencias/Sesion02/capturas-o-salidas/velocidad.txt)
+- [bios](../evidencias/Sesion02/capturas-o-salidas/bios.txt)
+- [df](../evidencias/Sesion02/capturas-o-salidas/df.txt)
+- [Mem_free](../evidencias/Sesion02/capturas-o-salidas/free.txt)
+- [ip addr enp2s0](../evidencias/Sesion02/capturas-o-salidas/ipbr.txt)
+- [lsblk](../evidencias/Sesion02/capturas-o-salidas/lsblk.txt)
+- [lscpu](../evidencias/Sesion02/capturas-o-salidas/lscpu.txt)
+- [lspci](../evidencias/Sesion02/capturas-o-salidas/lspci.txt)
+- [memory](../evidencias/Sesion02/capturas-o-salidas/memory.txt)
+- [smartctl](../evidencias/Sesion02/capturas-o-salidas/smartctl.txt)
+- [systemd-detect-virt](../evidencias/Sesion02/capturas-o-salidas/systemd.txt)
+- [velocidad de red (dmesg)](../evidencias/Sesion02/capturas-o-salidas/velocidad.txt)
 
 
 [Volver al indice](../README.md)

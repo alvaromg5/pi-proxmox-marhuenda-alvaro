@@ -2,7 +2,7 @@
 
 Alumno/a: marhuenda_alvaro
 
-URL GitHub: [https://github.com/USUARIO/pi-proxmox-apellido-nombre]
+URL GitHub: [https://github.com/USUARIO/pi-proxmox-marhuenda-alvaro]
 
 ## Objetivo
 
