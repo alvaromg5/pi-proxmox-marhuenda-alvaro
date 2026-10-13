@@ -1,0 +1,1 @@
+[  172.747396] r8169 0000:02:00.0 enp2s0: Link is Up - 1Gbps/Full - flow control rx/tx

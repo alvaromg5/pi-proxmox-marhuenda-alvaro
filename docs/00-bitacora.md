@@ -10,7 +10,17 @@ las evidencias utiles; evita frases generales como "he trabajado en Proxmox".
 - Acciones realizadas: Creación estructura con el script y primer commit: configuraciones, cambios o      investigacion.
 - Decisiones y motivos: PENDIENTE: eleccion realizada y alternativas valoradas.
 - Pruebas y resultados: PENDIENTE: resultado esperado, comando o metodo y resultado obtenido.
-- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md).
+- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [evidencias](../evidencias/Sesion01/capturas-o-salidas)
+- Incidencias y solucion o estado pendiente: PENDIENTE.
+- Siguiente paso: PENDIENTE: Preparar comandos para recopilar la información.
+
+## Sesion 02 - 13/10/2026
+
+- Objetivo: Investigar inventario y viabilidad
+- Acciones realizadas: Investigación del equipo y recopilación de sus datos. Contestación a las preguntas.
+- Decisiones y motivos: PENDIENTE: eleccion realizada y alternativas valoradas.
+- Pruebas y resultados: PENDIENTE: resultado esperado, comando o metodo y resultado obtenido.
+- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [evidencias](../evidencias/Sesion02/capturas-o-salidas)
 - Incidencias y solucion o estado pendiente: PENDIENTE.
 - Siguiente paso: PENDIENTE: accion concreta para la proxima sesion.
 

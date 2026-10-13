@@ -1,0 +1,15 @@
+Filesystem          Size  Used Avail Use% Mounted on
+udev                3.7G     0  3.7G   0% /dev
+tmpfs               783M  1.6M  781M   1% /run
+efivarfs            128K   54K   70K  44% /sys/firmware/efi/efivars
+/dev/mapper/ventoy  3.9G  3.9G     0 100% /run/live/medium
+/dev/loop0          3.2G  3.2G     0 100% /run/live/rootfs/filesystem.squashfs
+tmpfs               3.9G  754M  3.1G  20% /run/live/overlay
+overlay             3.9G  754M  3.1G  20% /
+tmpfs               3.9G     0  3.9G   0% /dev/shm
+tmpfs               5.0M  8.0K  5.0M   1% /run/lock
+tmpfs               1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs               3.9G  3.9M  3.9G   1% /tmp
+tmpfs               783M  200K  782M   1% /run/user/1000
+tmpfs               1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+/dev/sda1           458G  317G  119G  73% /media/user/333c800a-e53f-4357-ad39-5a415b83beed

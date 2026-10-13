@@ -24,4 +24,7 @@ pruebas de recuperacion en docs/08-copias-restauracion.md.
 
 [Primer push](./capturas-o-salidas/01img6.jpeg)
 
+[Comprobación](./capturas-o-salidas/01img7.jpeg)
+
 ## Sesion 02 ##
+

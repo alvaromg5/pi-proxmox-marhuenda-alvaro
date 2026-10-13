@@ -1,0 +1,8 @@
+NAME   TYPE   SIZE MODEL              ROTA TRAN
+loop0  loop   3.1G                       1 
+sda    disk 465.8G TOSHIBA DT01ACA050    1 sata
+└─sda1 part 465.8G                       1 
+sdb    disk  58.5G Cruzer Edge           1 usb
+├─sdb1 part  58.4G                       1 
+└─sdb2 part    32M                       1 
+sr0    rom   1024M ATAPI iHAS124 F       0 sata
