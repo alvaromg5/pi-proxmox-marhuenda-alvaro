@@ -68,62 +68,82 @@ Responder por separado y justificar con datos y fuentes:
 
 ## 2. Que limitaciones tendre con este hardware?
 
-Analizar RAM, CPU, disco y red para las cargas previstas. Identificar lo
-medido y lo estimado. En VirtualBox, investigar host real y VM: version,
-RAM reservada al anfitrion, vCPU, VDI, espacio fisico y red local.
-No se utiliza el Proxmox del centro como recurso.
+Analizando la RAM (7,6 GiB libres para el sistema), CPU (2 núcleos, 4 hilos), almacenamiento (HDD de 500 GB, 7200 rpm) y red (1 Gbps en dúplex completo), el equipo soporta el proyecto pero con restricciones. Podré mantener simultáneamente el servidor Proxmox, un servidor ASO y un cliente ligero, pero no podré desplegar laboratorios complejos con múltiples VMs sin saturar la memoria o el disco. 
 
 ### Reparto de recursos
+*Cálculos basados en: 7,6 GiB de RAM útil y 465 GiB de disco físico disponible tras formateo.*
 
-| Elemento | CPU/vCPU | RAM | Disco | Justificacion |
-|---|---|---|---|---|
-| Proxmox | | | | |
-| srv-aso | | | | |
-| cli-linux | | | | |
-| Plantilla, ISOs y copias | No aplica | No aplica | | |
-| Margen de operacion | | | | |
+| Elemento | CPU/vCPU | RAM prevista | Disco previsto | Justificación |
+| :--- | :--- | :--- | :--- | :--- |
+| **Proxmox y sus servicios** | Compartida | 2 GiB | 32 GiB | Reserva mínima recomendada por Proxmox para estabilidad del hipervisor. |
+| **srv-aso** | 2 vCPU | 2.5 GiB | 40 GiB | Servidor principal. Requiere memoria suficiente para evitar Swap. |
+| **cli-linux** | 1 vCPU | 1.5 GiB | 20 GiB | Cliente ligero (CLI o entorno mínimo) para verificar servicios. |
+| **Plantillas y copias locales** | No aplica | No aplica | 60 GiB | Reserva para ISOs de instalación, plantillas y *backups* locales. |
+| **Margen de operación** | *Overcommit* | 1.6 GiB | 313 GiB | Quedan 1,6 GiB libres en el host. Sobra amplio espacio en disco. |
 
-Mostrar calculos de RAM y disco, reparto de vCPU, unidades y supuestos.
-Explicar las cargas que pueden funcionar simultaneamente.
+### Análisis de limitaciones
 
-| Limitacion | Evidencia o estimacion | Consecuencia | Medida y limite que permanece |
-|---|---|---|---|
-| | | | |
+| Limitación o dato pendiente | Evidencia o estimación | Consecuencia para el proyecto | Medida y límite que permanece |
+| :--- | :--- | :--- | :--- |
+| **I/O Wait (Almacenamiento)** | Disco HDD a 7200 rpm en lugar de SSD. | Las lecturas/escrituras simultáneas ralentizarán drásticamente el sistema. | **Medida:** No usar ZFS. Escalonar arranques. **Límite:** La latencia física no mejora. |
+| **RAM muy ajustada** | 7,6 GiB de RAM utilizable. | Imposibilidad de levantar más de 2 o 3 VMs sin usar Swap, colapsando el nodo. | **Medida:** Usar contenedores LXC cuando sea posible. **Límite:** Concurrencia estancada en 2-3 instancias. |
+| **Sin redundancia** | Un solo disco y una interfaz de red (SPOF). | Si falla el disco, se pierde la práctica. Si la red se satura, Proxmox no responde. | **Medida:** Externalizar *backups*. **Límite:** Sigue habiendo puntos únicos de fallo. |
+
+----------------------------------------------------------------------------
 
 ## 3. Que componentes son mas criticos en mi servidor y por que?
 
-Ordenar al menos tres componentes para este equipo y su servicio.
-Distinguir cuello de botella, disponibilidad e integridad de los datos.
+| Prioridad y componente | Función en mi servidor | Efecto si es insuficiente | Efecto si falla | Evidencia y justificación |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Almacenamiento (HDD 500GB)** | Persistencia de datos, SO y *backups*. | Cuello de botella severo. *I/O wait* alto causando *timeouts* en servicios. | Pérdida total de integridad y disponibilidad. Se pierde todo. | Al ser un HDD mecánico y único, es el eslabón más débil en virtualización. |
+| **2. Memoria RAM (8 GB)** | Espacio volátil para el hipervisor y VMs. | Paginación en disco (Swap), congelando el nodo. | Caída abrupta y pérdida de disponibilidad de las máquinas. | Con 7,6 GiB reales el margen es mínimo. |
+| **3. Tarjeta de red (NIC 1 Gbps)** | Tráfico de gestión y servicios. | Alta latencia en conexión a servicios ASO. | Aislamiento total del nodo. Pérdida de servicio. | Carece de redundancia para alta disponibilidad. |
 
-| Prioridad y componente | Funcion | Efecto si es insuficiente | Efecto si falla | Evidencia y justificacion |
-|---|---|---|---|---|
-| 1. | | | | |
-| 2. | | | | |
-| 3. | | | | |
+**Componente que mejoraría primero:**
+El disco duro, sustituyéndolo por un SSD. En entornos de virtualización, el disco mecánico es el mayor cuello de botella. Un SSD reduce muchísimo el tiempo de espera (I/O Wait) y aumenta en grandes medidas la velocidad, permitiendo que la CPU y RAM actuales operen fluidamente sin esperar constantemente a operaciones de lectura/escritura.
 
-Componente que mejoraria primero y motivo para priorizarlo frente a otro:
-PENDIENTE.
+------------------------------------------------------------
 
 ## Fuentes tecnicas
 
-Consultar al menos tres fuentes primarias, incluyendo Proxmox y
-fabricante o plataforma virtual. Relacionarlas con las tres respuestas.
+| Fuente y URL | Versión/modelo y fecha | Afirmación respaldada | Aplicación al nodo |
+| :--- | :--- | :--- | :--- |
+| **Requisitos Proxmox VE** (https://www.proxmox.com/en/products/proxmox-virtual-environment/requirements) | Proxmox VE 8.x/9.x (13/10/2026) | Requiere CPU 64 bits con VT-x, mín. 1GB RAM, disco y NIC. | Confirma que el equipo supera el mínimo exigido para evaluar el hipervisor. |
+| **Intel ARK** (https://www.intel.com/content/www/us/en/products/sku/97143/intel-pentium-processor-g4560-3m-cache-3-50-ghz/specifications.html) | Intel Pentium G4560 (13/10/2026) | Procesador de 2 núcleos, 4 hilos, soporta Intel VT-x. | Para validar la capacidad real de procesamiento (vCPUs) para repartir cargas. |
+| **Salidas de los comandos del Linux** (`lscpu`, `free`, `ip`, `smartctl`...) | Debian Live (13/10/2026) | Red a 1 Gbps/Full, RAM 7,6 GiB, HDD TOSHIBA sano (SMART PASSED). | [evidencias](../evidencias/Sesion02/capturas-o-salidas/)
 
-| Fuente y URL | Version/modelo y fecha de consulta | Afirmacion respaldada | Aplicacion al nodo |
-|---|---|---|---|
-| | | | |
+-----------------------------------------------------------------------
 
 ## Dictamen de viabilidad
 
-Apto, apto con condiciones o no apto para la propuesta actual: PENDIENTE.
+**Apto con condiciones.**
 
-Sintetizar las tres respuestas y las condiciones pendientes de comprobar.
+El equipo físico es apto para actuar como nodo Proxmox y realizar la Práctica del Proyecto Intermodular. Tiene virtualización por hardware (VT-x), memoria para las tres máquinas base exigidas y red Gigabit. 
+
+Condicionado a:
+1. **Evitar ZFS** y usar volúmenes lógicos estándar (`ext4`/LVM) por culpa del disco mecánico.
+2. **Control estricto de RAM**, sin exceder el uso planificado para evitar colapsos.
+3. **Backup previo obligatorio**, porque al formatear el disco se borrarán los 317 GiB actuales.
+
+---------------------------------------------------------------------------------------------
 
 ## Evidencias y revision docente
 
-Enlazar salidas revisadas desde ../evidencias/. Un listado automatico no
-sustituye la investigacion. Registrar la pregunta de defensa y respuesta.
+***ZFS*** --> Sistema de archivos y gestor de volúmenes lógicos muy avanzado, diseñado específicamente para servidores de almacenamiento masivo y entornos de virtualización
 
-[evidencias](../evidencias/Sesion02/capturas-o-salidas)
+***I/O Wait*** --> I/O Wait es el porcentaje de tiempo que el procesador se queda inactivo o bloqueado porque está esperando a que un dispositivo de almacenamiento termine de leer o escribir datos.
+
+[bios](../evidencias/Sesion02/capturas-o-salidas/bios.txt)
+[df](../evidencias/Sesion02/capturas-o-salidas/df.txt)
+[Mem_free](../evidencias/Sesion02/capturas-o-salidas/free.txt)
+[ip addr enp2s0](../evidencias/Sesion02/capturas-o-salidas/ipbr.txt)
+[lsblk](../evidencias/Sesion02/capturas-o-salidas/lsblk.txt)
+[lscpu](../evidencias/Sesion02/capturas-o-salidas/lscpu.txt)
+[lspci](../evidencias/Sesion02/capturas-o-salidas/lspci.txt)
+[memory](../evidencias/Sesion02/capturas-o-salidas/memory.txt)
+[smartctl](../evidencias/Sesion02/capturas-o-salidas/smartctl.txt)
+[systemd-detect-virt](../evidencias/Sesion02/capturas-o-salidas/systemd.txt)
+[velocidad de red (dmesg)](../evidencias/Sesion02/capturas-o-salidas/velocidad.txt)
+
 
 [Volver al indice](../README.md)

@@ -10,7 +10,7 @@
 # | Acceso docente comprobado
     | PENDIENTE |
 # | Modalidad fisica o virtualizada
-    | PENDIENTE |
+    | PENDIENTE: Física |
 # | Recursos conocidos
     | Recursos conocidos | Equipo físico: Intel Pentium G4560 (2 núcleos / 4 hilos, VT-x), 8 GB DDR4 a 2400 MT/s (2 × 4 GB en dual channel, 7,6 GiB visibles), HDD TOSHIBA DT01ACA050 de 500 GB (465,8 GiB, 7200 rpm, SATA), red Realtek RTL8111H de 1 Gbit/s y placa ASUS H110I-PLUS (BIOS AMI 0810, UEFI). Sin VirtualBox. Detalle y evidencias en el [evidencias](../evidencias/Sesion02/capturas-o-salidas/) |
 # | Nombre del nodo 
