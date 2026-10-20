@@ -21,9 +21,9 @@ Diseñar la arquitectura de red lógica y física para el nodo Proxmox y el labo
 * Red NAT --> 10.0.2.0/24
 
 ## IPs de las VMs/LXC
-Máquina con proxmox (`Nodo proxmox`): `192.168.56.10`
-Servidor ASO (`srv-aso`): `192.168.56.20`
-Cliente: `192.168.56.30`
+* Máquina con proxmox (`Nodo proxmox`): `192.168.56.10`
+* Servidor ASO (`srv-aso`): `192.168.56.20`
+* Cliente: `192.168.56.30`
 
 ## Gateway y DNS
 **Red** | **Gateway** | **DNS**
