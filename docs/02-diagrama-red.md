@@ -56,7 +56,7 @@ graph TD
     
     NODO -->|"Enrutamiento y NAT"| VMBR1["vmbr1 · 10.0.2.15"]
     VMBR1 --> NAT["NAT de VMware"]
-    NAT --> EXT["Destino exterior autorizado"]
+    NAT --> EXT["Exterior de la red"]
 ```
 
 ## Conclusión
