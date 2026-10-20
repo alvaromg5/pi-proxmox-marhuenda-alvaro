@@ -37,3 +37,13 @@ GitHub registra los commits; no hace falta incluir el hash del propio
 commit dentro de su entrada de bitacora.
 
 [Volver al indice](../README.md)
+
+## Sesion 03 - 20/10/2026
+
+- Objetivo: Realizar el diagrama de red
+- Acciones realizadas: PENDIENTE
+- Decisiones y motivos: PENDIENTE: eleccion realizada y alternativas valoradas.
+- Pruebas y resultados: PENDIENTE: resultado esperado, comando o metodo y resultado obtenido.
+- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [evidencias](../evidencias/Sesion03/capturas-o-salidas)
+- Incidencias y solucion o estado pendiente: PENDIENTE.
+- Siguiente paso: Instalación y configuración proxmox y hypervisor.

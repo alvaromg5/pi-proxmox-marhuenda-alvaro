@@ -8,8 +8,8 @@ limitaciones que sigan abiertas.
 
 ## Resumen
 
-PENDIENTE: describir en un parrafo que se va a construir, para quien y con que
-resultado esperado. Revisar este resumen al cerrar el proyecto.
+Un proxmox mediante VirtualBox en la que vamos administrar diferentes máquinas virtuales.
+
 
 ## Necesidad y objetivos
 
