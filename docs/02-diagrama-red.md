@@ -27,16 +27,17 @@ Cliente: `192.168.56.30`
 
 ## Gateway y DNS
 **--Gateway--** | **--DNS--**
-Host-only | ... | ...
-Red NAT 10.0.2.0/24| `10.0.2.1` | `10.0.2.1`, `8.8.8.8`
+|---|---|
+| Host-only 192.168.56.0/24 | ... | ... |
+| Red NAT 10.0.2.0/24| `10.0.2.1` | `10.0.2.1`, `8.8.8.8` |
 
 ## Bridge de Proxmox y interfaces
-*  **`vmbr0`:** (Host only) | 192.168.56.10 | Para conectarnos a la web de proxmox a través del puerto TCP: 8006 con https.
-*  **`vmbr1`:** (Red NAT: 10.0.2.0/24) | 10.0.2.1 | Salida a internet (Con el exterior de la red).
+*  **`vmbr0`:** (Host only 192.168.56.0/24) | `192.168.56.10` | Para conectarnos a la web de proxmox a través del puerto TCP: 8006 con https.
+*  **`vmbr1`:** (Red NAT: 10.0.2.0/24) | `10.0.2.1` | Salida a internet (Con el exterior de la red).
 
 ## Puertos necesarios
 | Origen | Destino | Puerto | Función |
-| :--- | :--- | :--- | :--- |
+| --- | --- | --- | --- |
 | **Equipo Anfitrión** (`192.168.56.1`) | **Nodo Proxmox** (`192.168.56.10`) | TCP 8006 | Acceso HTTPS a la interfaz web de administración de Proxmox. |
 | **Equipo Anfitrión** (`192.168.56.1`) | **Nodo Proxmox** (`192.168.56.10`) | TCP 22 | Administración remota por consola SSH del hipervisor. |
 | **Cliente** (`192.168.56.30`) | **Servidor ASO** (`192.168.56.20`) | TCP 22 | Administración interna y conexión SSH entre máquinas del laboratorio. |
@@ -75,16 +76,16 @@ graph TD
 
     %% Conexiones Externas y de Gestión
     Internet <--> GatewayNAT
-    GatewayNAT <-->|Red: 10.0.2.0/24| vmbr1
+    GatewayNAT <-->|Red 10.0.2.0/24| vmbr1
     
-    Host <-->|Gestión Web (8006) y SSH (22)| vmbr0
+    Host <-->|Gestion Web 8006 y SSH 22| vmbr0
 
     %% Conexiones Internas de las VMs
     vmbr0 === srv-aso
     vmbr0 === cli-linux
 
-    %% Enrutamiento interno lógico (Proxmox enruta de Host-only a NAT para dar internet)
-    vmbr0 -.->|"Enrutamiento interno (Salida)"| vmbr1
+    %% Enrutamiento interno lógico 
+    vmbr0 -.->|Enrutamiento interno a NAT| vmbr1
 ```
 
 ## Conclusión
