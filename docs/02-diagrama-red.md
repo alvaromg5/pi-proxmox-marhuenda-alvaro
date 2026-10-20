@@ -48,7 +48,6 @@ Cliente: `192.168.56.30`
 ## Diagrama de red
 
 ```mermaid
-```mermaid
 graph TD
     CLI["cli-linux · .30"] --> VMBR0["Bridge vmbr0"]
     
