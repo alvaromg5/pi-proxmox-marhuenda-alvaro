@@ -52,4 +52,8 @@ pruebas de recuperacion en docs/08-copias-restauracion.md.
 
 ## Sesion 03 ##
 
+...
+
+## Sesion 04 ##
+
 [Volver al indice](../README.md)

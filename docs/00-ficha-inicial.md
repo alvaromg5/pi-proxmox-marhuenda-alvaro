@@ -8,9 +8,9 @@
 # | URL GitHub
     | https://github.com/USUARIO/pi-proxmox-apellido-nombre |
 # | Acceso docente comprobado
-    | PENDIENTE |
+    | Comprobado |
 # | Modalidad fisica o virtualizada
-    | PENDIENTE: Física |
+    | Virtualizada (Proxmox en VMware) |
 # | Recursos conocidos
     | Recursos conocidos | Equipo físico: Intel Pentium G4560 (2 núcleos / 4 hilos, VT-x), 8 GB DDR4 a 2400 MT/s (2 × 4 GB en dual channel, 7,6 GiB visibles), HDD TOSHIBA DT01ACA050 de 500 GB (465,8 GiB, 7200 rpm, SATA), red Realtek RTL8111H de 1 Gbit/s y placa ASUS H110I-PLUS (BIOS AMI 0810, UEFI). Sin VirtualBox. Detalle y evidencias en el [evidencias](../evidencias/Sesion02/capturas-o-salidas/) |
 # | Nombre del nodo 
@@ -18,7 +18,7 @@
 # | Servicio ASO previsto
     | PENDIENTE | (a elegir entre Samba, NFS, SSH, LDAP, CUPS o Nginx administrado) |
 # | Red de laboratorio
-    | PENDIENTE | Subred observada con DHCP en el equipo: 172.30.4.0/26 (`ip -br addr`). Gateway, DNS y direcciones fijas del nodo y de los invitados: PENDIENTE, se definirán en el [diagrama de red](02-diagrama-red.md). VLAN: no procede |
+    | 192.168.56.0/24 |
 
 # | Riesgos y dudas iniciales |
 - Configuración óptima de redes en Proxmox.

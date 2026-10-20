@@ -6,11 +6,12 @@ URL GitHub: [https://github.com/USUARIO/pi-proxmox-marhuenda-alvaro]
 
 ## Objetivo
 
-PENDIENTE: explicar la necesidad que resolvera el laboratorio.
+Centralización y administración de diferentes máquinas virtuales mediante proxmox.
 
 ## Modalidad
 
-PENDIENTE: fisica o virtualizada; justificar la eleccion.
+***Virtualizada***
+Es la única opción que tenemos ya que física es inviable con los recursos de clase.
 
 ## Indice de documentacion
 
