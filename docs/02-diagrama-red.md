@@ -26,8 +26,8 @@ Servidor ASO (`srv-aso`): `192.168.56.20`
 Cliente: `192.168.56.30`
 
 ## Gateway y DNS
-**--Gateway--** | **--DNS--**
-|---|---|
+**Red** | **Gateway** | **DNS**
+|---|---|---|
 | Host-only 192.168.56.0/24 | ... | ... |
 | Red NAT 10.0.2.0/24| `10.0.2.1` | `10.0.2.1`, `8.8.8.8` |
 
@@ -48,44 +48,16 @@ Cliente: `192.168.56.30`
 ## Diagrama de red
 
 ```mermaid
+```mermaid
 graph TD
-    %% Definición de estilos
-    classDef host fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px;
-    classDef proxmox fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
-    classDef vms fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;
-    classDef external fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
-
-    %% Nodos externos
-    Internet((Internet / Exterior)):::external
-    Host["Equipo Anfitrión (VMware)<br>IP: 192.168.56.1"]:::host
-    GatewayNAT["Gateway NAT de VMware<br>IP: 10.0.2.1<br>DNS: 8.8.8.8"]:::external
-
-    %% Nodo Proxmox y sus componentes
-    subgraph Nodo ["Nodo Proxmox (pve-marhuenda)"]
-        
-        subgraph Interfaces / Bridges
-            vmbr1["vmbr1 (Red NAT)<br>Salida a Internet"]:::proxmox
-            vmbr0["vmbr0 (Host-only)<br>IP: 192.168.56.10"]:::proxmox
-        end
-        
-        subgraph Laboratorio ["Máquinas Virtuales"]
-            srv-aso["srv-aso<br>IP: 192.168.56.20"]:::vms
-            cli-linux["cli-linux<br>IP: 192.168.56.30"]:::vms
-        end
-    end
-
-    %% Conexiones Externas y de Gestión
-    Internet <--> GatewayNAT
-    GatewayNAT <-->|Red 10.0.2.0/24| vmbr1
+    CLI["cli-linux · .30"] --> VMBR0["Bridge vmbr0"]
     
-    Host <-->|Gestion Web 8006 y SSH 22| vmbr0
-
-    %% Conexiones Internas de las VMs
-    vmbr0 === srv-aso
-    vmbr0 === cli-linux
-
-    %% Enrutamiento interno lógico 
-    vmbr0 -.->|Enrutamiento interno a NAT| vmbr1
+    VMBR0 -->|"Destino local"| SRV["srv-aso · .20"]
+    VMBR0 -->|"Tráfico al gateway"| NODO["Nodo · .10"]
+    
+    NODO -->|"Enrutamiento y NAT"| VMBR1["vmbr1 · 10.0.2.15"]
+    VMBR1 --> NAT["NAT de VMware"]
+    NAT --> EXT["Destino exterior autorizado"]
 ```
 
 ## Conclusión
