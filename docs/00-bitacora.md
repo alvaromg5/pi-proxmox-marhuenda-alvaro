@@ -25,7 +25,7 @@ Confirmamos que la CPU y la placa permiten virtualizar.
 ***Método:***
 Visualización de las especificaciones del equipo mediante la BIOS y comandos a través de la terminal.
 ***Resultado obtenido:***
-VT-x soportado y salidas de los comandos con las especificaciones guardadas en archivos txt.[evidencias](../evidencias/Sesion02/capturas-o-salidas)
+VT-x soportado y salidas de los comandos con las especificaciones guardadas en archivos txt.
 - Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [01-inventario-hardware](./01-inventario-hardware.md). [evidencias](../evidencias/Sesion02/capturas-o-salidas).
 - Incidencias y solucion o estado pendiente:
     - No teníamos permisos ni de administrador ni de root en los equipos, por lo que no podíamos ejecutar los comandos necesarios. Por lo que ejecutamos con un USB booteable un Debian Live en el que sí tenemos permisos.
