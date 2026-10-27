@@ -26,7 +26,7 @@ Confirmamos que la CPU y la placa permiten virtualizar.
 Visualización de las especificaciones del equipo mediante la BIOS y comandos a través de la terminal.
 ***Resultado obtenido:***
 VT-x soportado y salidas de los comandos con las especificaciones guardadas en archivos txt.[evidencias](../evidencias/Sesion02/capturas-o-salidas)
-- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [evidencias](../evidencias/Sesion02/capturas-o-salidas). [01-inventario-hardware](./01-inventario-hardware.md)
+- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [01-inventario-hardware](./01-inventario-hardware.md). [evidencias](../evidencias/Sesion02/capturas-o-salidas).
 - Incidencias y solucion o estado pendiente:
     - No teníamos permisos ni de administrador ni de root en los equipos, por lo que no podíamos ejecutar los comandos necesarios. Por lo que ejecutamos con un USB booteable un Debian Live en el que sí tenemos permisos.
     - El primer borrador incluía datos sin evidencia de comandos (tipo de disco y número de módulos de RAM). Se comprobaron y corrigieron el 13-10-2026
@@ -44,6 +44,16 @@ commit dentro de su entrada de bitacora.
 - Acciones realizadas: Diseño de red, y documentación.
 - Decisiones y motivos: PENDIENTE: eleccion realizada y alternativas valoradas.
 - Pruebas y resultados: PENDIENTE: resultado esperado, comando o metodo y resultado obtenido.
-- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [evidencias](../evidencias/Sesion03/capturas-o-salidas)
+- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [02-diagrama-red](./02-diagrama-red.md). [evidencias](../evidencias/Sesion03/capturas-o-salidas)
 - Incidencias y solucion o estado pendiente: PENDIENTE.
 - Siguiente paso: Instalación y configuración proxmox y hypervisor.
+
+## Sesion 03 - 27/10/2026
+
+- Objetivo: Instalación proxmox y configuración máquinas virtuales.
+- Acciones realizadas: Creacióm máquina, configuración, instalación y documentación.
+- Decisiones y motivos: PENDIENTE: eleccion realizada y alternativas valoradas.
+- Pruebas y resultados: PENDIENTE: resultado esperado, comando o metodo y resultado obtenido.
+- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [03-instalacion-proxmox](./03-instalacion-proxmox.md). [evidencias](../evidencias/Sesion04/capturas-o-salidas)
+- Incidencias y solucion o estado pendiente: PENDIENTE.
+- Siguiente paso: ...

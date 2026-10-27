@@ -1,0 +1,17 @@
+ Static hostname: pve-amg
+       Icon name: computer-vm
+         Chassis: vm 🖴
+      Machine ID: 441214e74ce54b44ad6177d5472514d3
+         Boot ID: a118d4f7c23e4c6b82eaa05ee49a6def
+    Product UUID: cc4d4d56-fc55-15f6-4909-f11a68f09ca3
+    AF_VSOCK CID: 1760599203
+  Virtualization: vmware
+Operating System: Debian GNU/Linux 13 (trixie)
+          Kernel: Linux 7.0.2-6-pve
+    Architecture: x86-64
+ Hardware Vendor: VMware, Inc.
+  Hardware Model: VMware Virtual Platform
+ Hardware Serial: VMware-56 4d 4d cc 55 fc f6 15-49 09 f1 1a 68 f0 9c a3
+Firmware Version: 6.00
+   Firmware Date: Tue 2026-02-17
+    Firmware Age: 8month 1w 1d

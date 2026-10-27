@@ -145,5 +145,6 @@ Condicionado a:
 - [systemd-detect-virt](../evidencias/Sesion02/capturas-o-salidas/systemd.txt)
 - [velocidad de red (dmesg)](../evidencias/Sesion02/capturas-o-salidas/velocidad.txt)
 
+------------------------------------------------------------------------------
 
 [Volver al indice](../README.md)

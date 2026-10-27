@@ -56,4 +56,40 @@ pruebas de recuperacion en docs/08-copias-restauracion.md.
 
 ## Sesion 04 ##
 
+[Versión VMware](./Sesion04/capturas-o-salidas/04img1.png)
+
+[Sistema operativo](./Sesion04/capturas-o-salidas/04img2.jpeg)
+
+[Procesadores](./Sesion04/capturas-o-salidas/04img3.jpeg)
+
+[RAM](./Sesion04/capturas-o-salidas/04img4.jpeg)
+
+[Espacio Disco duro](./Sesion04/capturas-o-salidas/04img5.jpeg)
+
+[Adaptadores de red](./Sesion04/capturas-o-salidas/04img6.png)
+
+[Virtualización anidada](./Sesion04/capturas-o-salidas/04img7.jpeg)
+
+[ISO](./Sesion04/capturas-o-salidas/04img8.jpeg)
+
+[Proxmox interfaz de comandos](../evidencias/Sesion04/capturas-o-salidas/04img9.jpeg)
+
+[Configuración IP](../evidencias/Sesion04/capturas-o-salidas/04img10.jpeg)
+
+[Configuración DNS](../evidencias/Sesion04/capturas-o-salidas/04img11.jpeg)
+
+[Panel Red](../evidencias/Sesion04/capturas-o-salidas/04img13.jpeg)
+
+[Panel almacenamiento](../evidencias/Sesion04/capturas-o-salidas/04img14.jpeg)
+
+[hostnamectl](../evidencias/Sesion04/capturas-o-salidas/hostname.txt)
+
+[conf_red](../evidencias/Sesion04/capturas-o-salidas/conf_red.txt)
+
+[pveversion](../evidencias/Sesion04/capturas-o-salidas/pveversion.txt)
+
+[inf_disco](../evidencias/Sesion04/capturas-o-salidas/inf_discos.txt)
+
+-----------------------------------------------------------------
+
 [Volver al indice](../README.md)

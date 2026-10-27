@@ -14,7 +14,7 @@ Diseñar la arquitectura de red lógica y física para el nodo Proxmox y el labo
 `pve-marhuenda`
 
 ## Hipervisor
-**VMware**
+**VirtualBox**
 
 ## Red o VLAN de laboratorio
 * Host-only --> 192.168.56.0/24
@@ -66,5 +66,7 @@ Este diseño de red resuelve perfectamente las necesidades del proyecto virtuali
 Por un lado, el uso de la red **Host-only** (`vmbr0`) garantiza un entorno propio aislado y seguro: permite administrar Proxmox desde mi equipo físico y asegurar que el servidor ASO y el cliente se comuniquen entre sí sin interferir con la red exterior. 
 
 Por otro lado como se necesita acceso a internet (al exterior), la red **NAT** (`vmbr1`) actúa como una especie de pasarela controlada, otorgando al nodo Proxmox y a sus máquinas el acceso a Internet para descargar paquetes y actualizaciones. 
+
+--------------------------------------------------------------
 
 [Volver al indice](../README.md)
