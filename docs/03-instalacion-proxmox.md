@@ -1,5 +1,7 @@
 # 03-instalacion-proxmox
 
+# Fase 3. Instalación de Proxmox
+
 ## Objetivo
 Instalación máquina proxmox y configuración.
 
@@ -88,6 +90,18 @@ Es necesario desactivar características de windows específicas relacionadas co
 
 ## Conclusion
 Se ha creado la máquina y los adaptadores de red, se ha instalado proxmox y configurado con éxito. Se accedió al panel de Proxmox desde el sistema anfitrión y se confirmó la conexión.
+
+----------------------------------------------------
+
+# Fase 4. Configuración base del nodo
+
+## Objetivo
+Configuración base del nodo.
+
+## Procedimiento
+
+### 1. Revisa dónde se guardará cada cosa
+
 
 ----------------------------------------------------
 
