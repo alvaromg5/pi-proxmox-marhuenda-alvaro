@@ -48,7 +48,7 @@ commit dentro de su entrada de bitacora.
 - Incidencias y solucion o estado pendiente: PENDIENTE.
 - Siguiente paso: Instalación y configuración proxmox y hypervisor.
 
-## Sesion 03 - 27/10/2026
+## Sesion 04 - 27/10/2026
 
 - Objetivo: Instalación proxmox y configuración máquinas virtuales.
 - Acciones realizadas: Creacióm máquina, configuración, instalación y documentación.
