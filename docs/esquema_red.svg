@@ -1,0 +1,52 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="396" viewBox="0 0 1200 396">
+
+  <rect width="1200" height="396" fill="#111111"/>
+
+  <!-- TARJETA NAT -->
+  <rect x="37" y="16" width="552" height="364" rx="10"
+        fill="#e5f5e9" stroke="#8ac99c"/>
+
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#174d2c">
+    <text x="313" y="49" font-size="14">Adaptador 1: NAT</text>
+    <text x="313" y="93" font-size="22" font-weight="bold" fill="#218b4b">nic0</text>
+    <path d="M54 104 H572" stroke="#ffffff" opacity="0.7"/>
+
+    <text x="313" y="133" font-size="12">Interfaz física virtual</text>
+    <text x="313" y="185" font-size="24">↓</text>
+    <text x="313" y="218" font-size="14">vmbr0</text>
+  </g>
+
+  <rect x="54" y="240" width="518" height="40" rx="6" fill="#c5ebd0"/>
+  <text x="313" y="265" font-family="Arial" font-size="14"
+        font-weight="bold" text-anchor="middle" fill="#174d2c">10.0.2.15/24</text>
+
+  <g font-family="Arial" text-anchor="middle" fill="#174d2c">
+    <text x="313" y="304" font-size="14">Gateway: 10.0.2.2</text>
+    <text x="313" y="341" font-size="11">Salida hacia Internet</text>
+  </g>
+
+  <!-- TARJETA SOLO-ANFITRION -->
+  <rect x="621" y="16" width="552" height="364" rx="10"
+        fill="#e8f0fc" stroke="#9bbbe9"/>
+
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#194477">
+    <text x="897" y="49" font-size="14">Adaptador 2: Solo-anfitrión</text>
+    <text x="897" y="93" font-size="22" font-weight="bold" fill="#3977c8">nic1</text>
+    <path d="M638 104 H1156" stroke="#ffffff" opacity="0.7"/>
+
+    <text x="897" y="133" font-size="12">Interfaz física virtual</text>
+    <text x="897" y="185" font-size="24">↓</text>
+    <text x="897" y="218" font-size="14">vmbr1</text>
+  </g>
+
+  <rect x="638" y="240" width="518" height="40" rx="6" fill="#d1e2fa"/>
+  <text x="897" y="265" font-family="Arial" font-size="14"
+        font-weight="bold" text-anchor="middle" fill="#194477">192.168.56.10/24</text>
+
+  <g font-family="Arial" text-anchor="middle" fill="#194477">
+    <text x="897" y="304" font-size="14">Sin gateway propio</text>
+    <text x="897" y="341" font-size="11">Comunicación con el anfitrión y laboratorio</text>
+  </g>
+
+</svg>

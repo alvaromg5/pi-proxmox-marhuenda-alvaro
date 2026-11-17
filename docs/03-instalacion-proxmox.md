@@ -107,36 +107,7 @@ Muestra lo siguiente:
 [ip -br addr](../evidencias/Sesion04_05/capturas-o-salidas/conf_red.txt)<br>
 [Ip route](../evidencias/Sesion04_05/capturas-o-salidas/ip_route.txt)
 
-
-flowchart LR
-
-    subgraph NAT["Adaptador 1: NAT"]
-        direction TB
-        A["nic0"] --> B["Interfaz física virtual"]
-        B --> C["vmbr0"]
-        C --> D["10.0.2.15/24"]
-        D --> E["Gateway: 10.0.2.2"]
-        E --> F["Salida hacia Internet"]
-    end
-
-    subgraph HOST["Adaptador 2: Solo-anfitrión"]
-        direction TB
-        G["nic1"] --> H["Interfaz física virtual"]
-        H --> I["vmbr1"]
-        I --> J["192.168.56.10/24"]
-        J --> K["Sin gateway propio"]
-        K --> L["Comunicación con el anfitrión y laboratorio"]
-    end
-
-    classDef nat fill:#e5f5e9,stroke:#8ac99c,color:#174d2c,stroke-width:2px
-    classDef host fill:#e8f0fc,stroke:#9bbbe9,color:#194477,stroke-width:2px
-
-    class A,B,C,D,E,F nat
-    class G,H,I,J,K,L host
-
-    style NAT fill:#e5f5e9,stroke:#8ac99c,stroke-width:2px,color:#174d2c
-    style HOST fill:#e8f0fc,stroke:#9bbbe9,stroke-width:2px,color:#194477
-
+![Esquema de red Proxmox](esquema_red.svg)
 
 <!-- Esquema red proxmox 
 
