@@ -107,7 +107,7 @@ Muestra lo siguiente:
 [ip -br addr](../evidencias/Sesion04_05/capturas-o-salidas/conf_red.txt)<br>
 [Ip route](../evidencias/Sesion04_05/capturas-o-salidas/ip_route.txt)
 
-![Esquema de red Proxmox](esquema_red.svg)
+![Esquema de red Proxmox](.esquema_red.svg)
 
 <!-- Esquema red proxmox 
 
