@@ -107,53 +107,7 @@ Muestra lo siguiente:
 [ip -br addr](../evidencias/Sesion04_05/capturas-o-salidas/conf_red.txt)<br>
 [Ip route](../evidencias/Sesion04_05/capturas-o-salidas/ip_route.txt)
 
-![Esquema de red Proxmox](.esquema_red.svg)
-
-<!-- Esquema red proxmox 
-
-<div style="display:flex; flex-wrap:wrap; gap:16px; margin:16px 0;">
-
-<div style="flex:1; min-width:230px; background:#e5f5e9; border:1px solid #8ac99c; border-radius:10px; padding:16px; text-align:center; color:#174d2c;">
-
-Adaptador 1: NAT
-
-<h2 style="margin:12px 0; color:#218b4b;">nic0</h2>
-
-<small>Interfaz física virtual</small>
-
-<div style="font-size:24px; margin:8px;">↓</div>
-
-vmbr0
-
-<div style="background:#c5ebd0; border-radius:6px; padding:8px; margin:8px 0; font-weight:bold;">10.0.2.15/24</div>
-
-Gateway: 10.0.2.2
-
-<small>Salida hacia Internet</small>
-
-</div>
-
-<div style="flex:1; min-width:230px; background:#e8f0fc; border:1px solid #9bbbe9; border-radius:10px; padding:16px; text-align:center; color:#194477;">
-
-Adaptador 2: Solo-anfitrión
-
-<h2 style="margin:12px 0; color:#3977c8;">nic1</h2>
-
-<small>Interfaz física virtual</small>
-
-<div style="font-size:24px; margin:8px;">↓</div>
-
-vmbr1
-
-<div style="background:#d1e2fa; border-radius:6px; padding:8px; margin:8px 0; font-weight:bold;">192.168.56.10/24</div>
-
-Sin gateway propio
-
-<small>Comunicación con el anfitrión y laboratorio</small>
-
-</div>
-
-</div> -->
+![Esquema de red Proxmox](../evidencias/Sesion04_05/capturas-o-salidas/05esquema_red.svg)
 
 #### Se han identificado las dos interfaces, sus bridges, las direcciones IP y la puerta de enlace, están correctamente.
 
