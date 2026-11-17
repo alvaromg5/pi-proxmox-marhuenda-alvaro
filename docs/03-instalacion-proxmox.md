@@ -53,7 +53,7 @@ Configuramos la dirección IP y el puente al adaptador de red ``VMnet10`` que ti
 
 -----------------------------------------------------------------------
 
-# Fase 4. Instalación de Proxmox
+# Fase 4. Configuración base del nodo
 
 ## Objetivo
 Comprobaciones y revisiones
@@ -61,7 +61,8 @@ Comprobaciones y revisiones
 ## Procedimiento
 
 ### 1. Revisa dónde se guardará cada cosa
-[/datacenter/storage](../evidencias/Sesion04_05/capturas-o-salidas/05img3.png)
+[/datacenter/storage](../evidencias/Sesion04_05/capturas-o-salidas/05img3.png)<br><br>
+Muestra lo siguiente:
 #### local<br>
 🟢 Enabled: Yes
 
@@ -161,8 +162,17 @@ Sin gateway propio
 ![roles](../evidencias/Sesion04_05/capturas-o-salidas/05img6.png)
 
 ### 4. Ajusta el reparto de recursos
-> [!Aviso]
+> [!IMPORTANT]
 > Los datos de hardware cambian respecto al del inventario ya que esos datos se tomaron sobre ordenadores que al final no se usaron
+
+Se ha comprobado el equipo anfitrión dispone de un procesador Intel Core i3-12100 de 4 núcleos y 8 hilos, 16 GiB de RAM y en la máquina virtual disponemos de 64 GB dinámicos:
+
+| Elemento | CPU/vCPU | RAM | Disco o almacenamiento | Motivo del reparto |
+|---|---:|---:|---|---|
+| **Nodo Proxmox** | Compartida | 2 GiB | 64 GB (disco virtual dinámico) | Sistema operativo, hipervisor y servicios de administración. |
+| **srv-aso** | 2 vCPU | 2,5 GiB | 12 GB (`local-lvm`) | Servidor principal del laboratorio. |
+| **cli-linux** | 1 vCPU | 2 GiB | 6 GB (`local-lvm`) | Cliente ligero para realizar pruebas de conectividad y servicios. |
+| **Plantillas, ISO, copias y margen** | — | Reserva del anfitrión | `local` y almacenamiento externo | Guardar ISO y plantillas, realizar copias externas y evitar saturar el almacenamiento. |
 
 ## Comandos usados
 
@@ -209,10 +219,10 @@ pvesm status
 - [Ip route](../evidencias/Sesion04_05/capturas-o-salidas/ip_route.txt)
 
 ## Incidencias
-Es necesario desactivar características de windows específicas relacionadas con Hyper-V y la virtualización. Para poder realizar virtualización anidada desde el software de virtualización.
+Como windows dió muchos problemas, al final se tomó la decisión de rehacer la máquina Proxmox en el ordenador con Linux de clase. La fase 4 ya se realizó en el nuevo proxmox y las configuraciones de esta nueva máquina fueron exactamente las mismas que las que se hicieron en Vmware en windows en la Fase 3.
 
 ## Conclusion
-Se ha creado la máquina y los adaptadores de red, se ha instalado proxmox y configurado con éxito. Se accedió al panel de Proxmox desde el sistema anfitrión y se confirmó la conexión.
+Se ha creado la máquina y los adaptadores de red, se ha instalado proxmox y configurado con éxito. Se accedió al panel de Proxmox desde el sistema anfitrión y se confirmó la conexión. Se comprobo y revisó las configuraciones.
 
 ----------------------------------------------------
 
