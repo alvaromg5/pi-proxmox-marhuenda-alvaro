@@ -161,7 +161,7 @@ Sin gateway propio
 ![roles](../evidencias/Sesion04_05/capturas-o-salidas/05img6.png)
 
 ### 4. Ajusta el reparto de recursos
-> [!IMPORTANT]
+> [!Aviso]
 > Los datos de hardware cambian respecto al del inventario ya que esos datos se tomaron sobre ordenadores que al final no se usaron
 
 ## Comandos usados
