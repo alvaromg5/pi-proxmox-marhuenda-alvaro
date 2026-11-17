@@ -54,6 +54,16 @@ commit dentro de su entrada de bitacora.
 - Acciones realizadas: Creacióm máquina, configuración, instalación y documentación.
 - Decisiones y motivos: PENDIENTE: eleccion realizada y alternativas valoradas.
 - Pruebas y resultados: PENDIENTE: resultado esperado, comando o metodo y resultado obtenido.
-- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [03-instalacion-proxmox](./03-instalacion-proxmox.md). [evidencias](../evidencias/Sesion04/capturas-o-salidas)
+- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [03-instalacion-proxmox](./03-instalacion-proxmox.md). [evidencias](../evidencias/Sesion04_05/capturas-o-salidas)
+- Incidencias y solucion o estado pendiente: PENDIENTE.
+- Siguiente paso: ...
+
+## Sesion 05 - 17/11/2026
+
+- Objetivo: Comprobaciones y revisiones después de la instalación.
+- Acciones realizadas: Ejecucuión de comandos y comprobaciones en el panel de proxmox
+- Decisiones y motivos: PENDIENTE: eleccion realizada y alternativas valoradas.
+- Pruebas y resultados: PENDIENTE: resultado esperado, comando o metodo y resultado obtenido.
+- Documentos o evidencias: [Ficha inicial](00-ficha-inicial.md). [03-instalacion-proxmox](./03-instalacion-proxmox.md). [evidencias](../evidencias/Sesion04_05/capturas-o-salidas)
 - Incidencias y solucion o estado pendiente: PENDIENTE.
 - Siguiente paso: ...

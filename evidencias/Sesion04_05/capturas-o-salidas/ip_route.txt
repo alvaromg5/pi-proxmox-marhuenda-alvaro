@@ -1,0 +1,3 @@
+default via 10.0.2.2 dev vmbr0 proto kernel onlink 
+10.0.2.0/24 dev vmbr0 proto kernel scope link src 10.0.2.15 
+192.168.56.0/24 dev vmbr1 proto kernel scope link src 192.168.56.10 

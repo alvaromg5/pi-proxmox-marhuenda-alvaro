@@ -1,0 +1,5 @@
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+nic0             UP             
+nic1             UP             
+vmbr0            UP             10.0.2.15/24 fe80::a00:27ff:fe0f:625a/64 
+vmbr1            UP             192.168.56.10/24 fe80::a00:27ff:fee1:8799/64 

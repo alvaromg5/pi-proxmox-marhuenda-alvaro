@@ -90,6 +90,24 @@ pruebas de recuperacion en docs/08-copias-restauracion.md.
 
 [inf_disco](../evidencias/Sesion04/capturas-o-salidas/inf_discos.txt)
 
+## Sesion 05 ##
+
+[Mejora1](../evidencias/Sesion04_05/capturas-o-salidas/05img1.png)
+
+[Mejora2](../evidencias/Sesion04_05/capturas-o-salidas/05img2.png)
+
+[/datacenter/storage](../evidencias/Sesion04_05/capturas-o-salidas/05img3.png)
+
+[network](../evidencias/Sesion04_05/capturas-o-salidas/05img4.png)
+
+[pvesm](../evidencias/Sesion04_05/capturas-o-salidas/pvesm.txt)
+
+[ip route](../evidencias/Sesion04_05/capturas-o-salidas/ip_route.txt)
+
+[usuarios](../evidencias/Sesion04_05/capturas-o-salidas/05img5.png)
+
+[roles](../evidencias/Sesion04_05/capturas-o-salidas/05img6.png)
+
 -----------------------------------------------------------------
 
 [Volver al indice](../README.md)
