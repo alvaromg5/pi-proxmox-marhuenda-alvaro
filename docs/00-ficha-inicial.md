@@ -16,7 +16,7 @@
 # | Nombre del nodo 
     | pve-marhuenda |
 # | Servicio ASO previsto
-    | PENDIENTE | (a elegir entre Samba, NFS, SSH, LDAP, CUPS o Nginx administrado) |
+    | (a elegir entre Samba, NFS, SSH, LDAP, CUPS o Nginx administrado) |
 # | Red de laboratorio
     | 192.168.56.0/24 |
 

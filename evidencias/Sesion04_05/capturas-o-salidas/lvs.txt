@@ -1,0 +1,4 @@
+  LV   VG  LSize  Data%  Meta% 
+  data pve 20.07g 0.00   1.58  
+  root pve 25.98g              
+  swap pve <7.57g              

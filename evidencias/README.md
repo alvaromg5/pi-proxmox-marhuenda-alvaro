@@ -54,7 +54,7 @@ pruebas de recuperacion en docs/08-copias-restauracion.md.
 
 ## Sesion 04 ##
 
-[Versión VMware](./Sesion04/capturas-o-salidas/04img1.png)
+[Versión VirtualBox](./Sesion04/capturas-o-salidas/04img1.png)
 
 [Sistema operativo](./Sesion04/capturas-o-salidas/04img2.jpeg)
 
@@ -98,13 +98,37 @@ pruebas de recuperacion en docs/08-copias-restauracion.md.
 
 [network](../evidencias/Sesion04_05/capturas-o-salidas/05img4.png)
 
-[pvesm](../evidencias/Sesion04_05/capturas-o-salidas/pvesm.txt)
-
-[ip route](../evidencias/Sesion04_05/capturas-o-salidas/ip_route.txt)
-
 [usuarios](../evidencias/Sesion04_05/capturas-o-salidas/05img5.png)
 
 [roles](../evidencias/Sesion04_05/capturas-o-salidas/05img6.png)
+
+[Creacion_usuario](../evidencias/Sesion04_05/capturas-o-salidas/05img7.png)
+
+[Panel_usuario](../evidencias/Sesion04_05/capturas-o-salidas/05img8.png)
+
+[Rol_creado](../evidencias/Sesion04_05/capturas-o-salidas/05img9.png)
+
+[Rol_Asignado](../evidencias/Sesion04_05/capturas-o-salidas/05img10.png)
+
+[status JSON](../evidencias/Sesion04_05/capturas-o-salidas/05img11.png)
+
+[HTTP_403/syslog](../evidencias/Sesion04_05/capturas-o-salidas/05img12.png)
+
+[HTTP_403/status](../evidencias/Sesion04_05/capturas-o-salidas/05img13.png)
+
+[ip route](../evidencias/Sesion04_05/capturas-o-salidas/ip_route.txt)
+
+[pvesm](../evidencias/Sesion04_05/capturas-o-salidas/pvesm.txt)
+
+[lsblk](../evidencias/Sesion04_05/capturas-o-salidas/lsblk.txt)
+
+[findmnt](../evidencias/Sesion04_05/capturas-o-salidas/findmnt.txt)
+
+[lvs](../evidencias/Sesion04_05/capturas-o-salidas/lvs.txt)
+
+## Sesion 06 ##
+
+
 
 -----------------------------------------------------------------
 

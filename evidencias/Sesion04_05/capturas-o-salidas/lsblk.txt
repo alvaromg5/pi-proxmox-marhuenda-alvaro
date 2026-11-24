@@ -1,0 +1,12 @@
+NAME                SIZE TYPE FSTYPE      MOUNTPOINTS
+sda                  64G disk             
+├─sda1             1007K part             
+├─sda2              512M part vfat        
+└─sda3             63.5G part LVM2_member 
+  ├─pve-swap        7.6G lvm  swap        [SWAP]
+  ├─pve-root         26G lvm  ext4        /
+  ├─pve-data_tmeta    1G lvm              
+  │ └─pve-data     20.1G lvm              
+  └─pve-data_tdata 20.1G lvm              
+    └─pve-data     20.1G lvm              
+sr0                1024M rom              

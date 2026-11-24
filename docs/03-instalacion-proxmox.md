@@ -7,9 +7,9 @@ Instalación máquina proxmox y configuración.
 
 ## Procedimiento
 
-### 1. Abre VMware en tu equipo y registra su version.
-- VMware Workstation Pro 26H1 -->
-[Versión VMware](../evidencias/Sesion04_05/capturas-o-salidas/04img1.png)
+### 1. Abre VirtualBox en tu equipo y registra su version.
+- Oracle VirtualBox -->
+[Versión VirtualBox](../evidencias/Sesion04_05/capturas-o-salidas/04img1.png)
 
 ### 2-3. Crea una VM Linux de 64 bits para Proxmox con CPU, RAM y VDI del diseno.
 #### Según: [Requisitos recomendados](./01-inventario-hardware.md#1-puedo-instalar-proxmox-en-este-equipo)
@@ -98,6 +98,9 @@ Muestra lo siguiente:
 > Lo comparamos con los siguientes comandos en la consola del nodo:<br>
 [pvesm status](../evidencias/Sesion04_05/capturas-o-salidas/pvesm.txt)<br>
 [df -h](../evidencias/Sesion04_05/capturas-o-salidas/inf_discos.txt)
+[lsblk](../evidencias/Sesion04_05/capturas-o-salidas/lsblk.txt)
+[findmnt](../evidencias/Sesion04_05/capturas-o-salidas/findmnt.txt)
+[lvs](../evidencias/Sesion04_05/capturas-o-salidas/lvs.txt)
 
 ### 2. Relaciona las interfaces con tu diseño
 > En Nodo > System > Network
@@ -117,6 +120,48 @@ Muestra lo siguiente:
 > **Y los siguientes roles:**
 ![roles](../evidencias/Sesion04_05/capturas-o-salidas/05img6.png)
 
+### Crear y probar un acceso limitado
+>#### 1. Crear la cuenta de prueba   
+![Creacion_usuario](../evidencias/Sesion04_05/capturas-o-salidas/05img7.png)
+
+>#### 2. Entra sin asignarle un rol<br>
+Al entrar este usuario no puede ver toda la información del nodo.<br>
+[Panel_usuario](../evidencias/Sesion04_05/capturas-o-salidas/05img8.png)
+
+>#### 3. Crear el rol<br>
+Rol creado con privilegios sys.audit.<br>
+![Rol_creado](../evidencias/Sesion04_05/capturas-o-salidas/05img9.png)
+
+>#### 4. Asígnalo al nodo<br>
+![Rol_Asignado](../evidencias/Sesion04_05/capturas-o-salidas/05img10.png)
+
+>#### 5. Comprueba una operación permitida y otra denegada.<br>
+[Operación permitida_status](../evidencias/Sesion04_05/capturas-o-salidas/05img11.png)<br>
+[Operación denegada_syslog](../evidencias/Sesion04_05/capturas-o-salidas/05img12.png)
+
+>#### 6. Retira el permiso y repite la consulta<br>
+Eliminamos el rol de Aula-Lectura al usuario creado.<br>
+Volvemos a cargar la página.<br>
+[Opearación denegada_status](../evidencias/Sesion04_05/capturas-o-salidas/05img13.png)
+
+>#### 7. Guarda lo que has comprobado
+| Cuenta y situación | Prueba | Resultado previsto | Resultado obtenido y explicación |
+|---|---|---|---|
+| `amg-lectura@pve`, sin ACL | Iniciar sesión | Permitido, sin acceso al estado del nodo | Se ha podido iniciar sesión, pero el usuario no podía consultar la información del nodo al no tener permisos asignados. |
+| Con `AulaLectura` en el nodo | Consultar `status` | Permitido | HTTP 200. Se muestra la información del nodo en formato JSON, ya que el usuario dispone del privilegio `Sys.Audit`. |
+| Con `AulaLectura` en el nodo | Consultar `syslog` | Denegado, HTTP 403 | HTTP 403. No se permite consultar los registros del sistema porque el rol no incluye el privilegio `Sys.Syslog`. |
+| Tras retirar la asignación | Consultar `status` | Denegado, HTTP 403 | HTTP 403. Al retirar la asignación del rol, el usuario pierde el privilegio `Sys.Audit` y deja de tener acceso a la información del nodo. |
+
+### Usuarios y permisos final
+| Cuenta | Dónde se utiliza | Rol o permisos | Ámbito | Para qué la necesitas |
+|---|---|---|---|---|
+| `root@pam` | Panel de Proxmox | Administración completa | Toda la instalación (/) | Configuración, administración y recuperación del nodo. |
+| `amg-lectura@pve` | Panel de Proxmox | Sin permisos tras retirar la asignación de AulaLectura | Sin ámbito asignado actualmente | Realizar pruebas de acceso limitado al nodo. |
+
+Inicialmente solo existía el usuario root@pam, que no
+es una cuenta limitada ya que dispone de todos los
+permisos de administración.
+
 ### 4. Ajusta el reparto de recursos
 > [!IMPORTANT]
 > Los datos de hardware cambian respecto al del inventario ya que esos datos se tomaron sobre ordenadores que al final no se usaron
@@ -125,10 +170,14 @@ Se ha comprobado el equipo anfitrión dispone de un procesador Intel Core i3-121
 
 | Elemento | CPU/vCPU | RAM | Disco o almacenamiento | Motivo del reparto |
 |---|---:|---:|---|---|
-| **Nodo Proxmox** | Compartida | 2 GiB | 64 GB (disco virtual dinámico) | Sistema operativo, hipervisor y servicios de administración. |
-| **srv-aso** | 2 vCPU | 2,5 GiB | 12 GB (`local-lvm`) | Servidor principal del laboratorio. |
-| **cli-linux** | 1 vCPU | 2 GiB | 6 GB (`local-lvm`) | Cliente ligero para realizar pruebas de conectividad y servicios. |
-| **Plantillas, ISO, copias y margen** | — | Reserva del anfitrión | `local` y almacenamiento externo | Guardar ISO y plantillas, realizar copias externas y evitar saturar el almacenamiento. |
+| **Nodo Proxmox** | 4 vCPU compartidas | 2 GiB de reserva | 64 GiB de disco virtual total | Sistema operativo, hipervisor y servicios de administración. |
+| **srv-aso** | 2 vCPU | 2,5 GiB | 12 GiB (`local-lvm`) | Servidor principal del laboratorio. |
+| **cli-linux** | 1 vCPU | 2 GiB | 6 GiB (`local-lvm`) | Cliente ligero para realizar pruebas de conectividad y servicios. |
+| **Plantillas, ISO y copias** | — | — | 20,1 GiB libres actualmente en `local` y almacenamiento externo | Guardar imágenes ISO, plantillas y realizar copias de seguridad. |
+| **Margen del nodo** | Compartida | 1,5 GiB | 2,07 GiB previstos en `local-lvm` | Evitar saturar los recursos del nodo. |
+| **Reserva del anfitrión** | CPU compartida | 8 GiB | Almacenamiento físico | Permitir el correcto funcionamiento del equipo anfitrión y VMware. |
+
+>![RepartoRecursos](../evidencias/Sesion04_05/capturas-o-salidas/05reparto_recursos.svg)
 
 ## Comandos usados
 
@@ -138,17 +187,26 @@ ip -br addr
 pveversion
 df -h
 pvesm status
+lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS
+findmnt /
+lvs -o lv_name,vg_name,lv_size,data_percent,metadata_percent
 ```
 ### Salidas en:
 - [hostnamectl](../evidencias/Sesion04_05/capturas-o-salidas/hostname.txt)
 - [ip -br addr](../evidencias/Sesion04_05/capturas-o-salidas/conf_red.txt)
+- [Ip route](../evidencias/Sesion04_05/capturas-o-salidas/ip_route.txt)
 - [pveversion](../evidencias/Sesion04_05/capturas-o-salidas/pveversion.txt)
+- [conf_red](../evidencias/Sesion04_05/capturas-o-salidas/conf_red.txt)
 - [df -h](../evidencias/Sesion04_05/capturas-o-salidas/inf_discos.txt)
 - [pvesm](../evidencias/Sesion04_05/capturas-o-salidas/pvesm.txt)
+- [inf_disco](../evidencias/Sesion04_05/capturas-o-salidas/inf_discos.txt)
+- [lsblk](../evidencias/Sesion04_05/capturas-o-salidas/lsblk.txt)
+- [findmnt](../evidencias/Sesion04_05/capturas-o-salidas/findmnt.txt)
+- [lvs](../evidencias/Sesion04_05/capturas-o-salidas/lvs.txt)
 
 ## Evidencias
 
-- [Versión VMware](./Sesion04_05/capturas-o-salidas/04img1.png)
+- [Versión VirtualBox](./Sesion04_05/capturas-o-salidas/04img1.png)
 - [Sistema operativo](./Sesion04_05/capturas-o-salidas/04img2.jpeg)
 - [Procesadores](./Sesion04_05/capturas-o-salidas/04img3.jpeg)
 - [RAM](./Sesion04_05/capturas-o-salidas/04img4.jpeg)
@@ -167,18 +225,25 @@ pvesm status
 - [network](../evidencias/Sesion04_05/capturas-o-salidas/05img4.png)
 - [usuarios](../evidencias/Sesion04_05/capturas-o-salidas/05img5.png)
 - [roles](../evidencias/Sesion04_05/capturas-o-salidas/05img6.png)
-- [hostnamectl](../evidencias/Sesion04_05/capturas-o-salidas/hostname.txt)
-- [conf_red](../evidencias/Sesion04_05/capturas-o-salidas/conf_red.txt)
-- [pveversion](../evidencias/Sesion04_05/capturas-o-salidas/pveversion.txt)
-- [inf_disco](../evidencias/Sesion04_05/capturas-o-salidas/inf_discos.txt)
-- [pvesm](../evidencias/Sesion04_05/capturas-o-salidas/pvesm.txt)
-- [Ip route](../evidencias/Sesion04_05/capturas-o-salidas/ip_route.txt)
+- [Creacion_usuario](../evidencias/Sesion04_05/capturas-o-salidas/05img7.png)
+- [Panel_usuario](../evidencias/Sesion04_05/capturas-o-salidas/05img8.png)
+- [Rol_creado](../evidencias/Sesion04_05/capturas-o-salidas/05img9.png)
+- [Rol_Asignado](../evidencias/Sesion04_05/capturas-o-salidas/05img10.png)
+- [Operación permitida_status](../evidencias/Sesion04_05/capturas-o-salidas/05img11.png)
+- [Operación denegada_syslog](../evidencias/Sesion04_05/capturas-o-salidas/05img12.png)
+- [Operación denegada_status](../evidencias/Sesion04_05/capturas-o-salidas/05img13.png)
 
 ## Incidencias
 Como windows dió muchos problemas, al final se tomó la decisión de rehacer la máquina Proxmox en el ordenador con Linux de clase. La fase 4 ya se realizó en el nuevo proxmox y las configuraciones de esta nueva máquina fueron exactamente las mismas que las que se hicieron en Vmware en windows en la Fase 3.
 
 ## Conclusion
-Se ha creado la máquina y los adaptadores de red, se ha instalado proxmox y configurado con éxito. Se accedió al panel de Proxmox desde el sistema anfitrión y se confirmó la conexión. Se comprobo y revisó las configuraciones.
+Se ha creado la máquina virtual, instalado Proxmox y configurado los adaptadores de red, consiguiendo acceder correctamente al panel desde el equipo anfitrión.
+
+Posteriormente, se ha revisado la configuración del almacenamiento, las interfaces de red y los permisos de los usuarios. Se ha comprobado el funcionamiento de los roles y privilegios mediante la creación de un usuario con acceso limitado, realizando pruebas de operaciones permitidas y denegadas.
+
+Por último, se ha ajustado el reparto de recursos teniendo en cuenta el hardware disponible, dejando un margen suficiente tanto para el nodo Proxmox como para el equipo anfitrión.
+
+Con esto, se deja el entorno preparado para la posterior creación y configuración de las máquinas virtuales del laboratorio.
 
 ----------------------------------------------------
 
