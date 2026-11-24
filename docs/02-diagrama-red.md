@@ -55,7 +55,7 @@ graph TD
     VMBR0 -->|"Tráfico al gateway"| NODO["Nodo · .10"]
     
     NODO -->|"Enrutamiento y NAT"| VMBR1["vmbr1 · 10.0.2.15"]
-    VMBR1 --> NAT["NAT de VMware"]
+    VMBR1 --> NAT["NAT de VirtualBox"]
     NAT --> EXT["Exterior de la red"]
 ```
 
