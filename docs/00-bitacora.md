@@ -42,7 +42,7 @@ las evidencias utiles; evita frases generales como "he trabajado en Proxmox".
 
 - Acciones realizadas: Diseño de red, y documentación.
 
-- Decisiones y motivos: e ha decidido utilizar dos adaptadores de red en VirtualBox en vez de utilizar únicamente uno. La red Host-only permitirá la comunicación interna del laboratorio y el acceso al panel de Proxmox desde el equipo anfitrión, mientras que la red NAT permitirá disponer de salida a Internet. Se han establecido direcciones IP fijas para facilitar la identificación y administración de las máquinas.
+- Decisiones y motivos: Se ha decidido utilizar dos adaptadores de red en VirtualBox en vez de utilizar únicamente uno. La red Host-only permitirá la comunicación interna del laboratorio y el acceso al panel de Proxmox desde el equipo anfitrión, mientras que la red NAT permitirá disponer de salida a Internet. Se han establecido direcciones IP fijas para facilitar la identificación y administración de las máquinas.
 
 - Pruebas y resultados:
     - **Resultado esperado:** Obtener un diseño de red que permita la comunicación entre las máquinas del laboratorio, la administración del nodo y la salida a Internet.
